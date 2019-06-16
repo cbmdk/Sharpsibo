@@ -8,9 +8,8 @@ namespace Sharpsibo
 {
     public class Sharpsibo
     {
-        private const string hostUrl = "home.sensibo.com";
-        private const string basePath = "/api/v2/";
-        private const string schemes = "https";
+        private readonly string hostUrl = "home.sensibo.com";
+        private readonly string basePath = "/api/v2/";
         readonly string _key;
 
         public Sharpsibo(string apiKey)
@@ -20,7 +19,7 @@ namespace Sharpsibo
 
         public Pods GetPods()
         {
-            var request = (HttpWebRequest) WebRequest.Create($"{schemes}://{hostUrl}{basePath}users/me/pods?fields=*&apiKey={_key}");
+            var request = (HttpWebRequest) WebRequest.Create($"https://{hostUrl}{basePath}users/me/pods?fields=*&apiKey={_key}");
             request.Method = "GET";
             request.ContentType = "application/json";
 
