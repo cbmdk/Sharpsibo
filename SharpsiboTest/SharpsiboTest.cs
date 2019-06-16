@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices.ComTypes;
 using NUnit.Framework;
+using Sharpsibo.Models;
 
 namespace Tests
 {
@@ -21,6 +22,20 @@ namespace Tests
                 Assert.Pass();
             }
             else Assert.Fail();
+        }
+
+        [Test]
+        public void GetHistory()
+        {
+            var history = sharpsibo.GetReadings(4, "eyy7htpx");
+            if (history.status == "succress")
+            {
+                Assert.Pass();
+            }
+            else
+            {
+                Assert.Fail();
+            }
         }
     }
 }
