@@ -58,7 +58,7 @@ namespace Sharpsibo
             using (var response = (HttpWebResponse) request.GetResponse())
             {
                 var result = string.Empty;
-                if(response.StatusCode != HttpStatusCode.OK)
+                if (response.StatusCode != HttpStatusCode.OK)
                 {
                     var failed = $"Request failed. Received HTTP {response.StatusCode}";
                     throw new ApplicationException(failed);
@@ -80,6 +80,37 @@ namespace Sharpsibo
 
             }
 
+        }
+
+        public History GetAcStates(string podId)
+        {
+            var request = (HttpWebRequest) WebRequest.Create($"https://{hostUrl}{basePath}pods/{podId}/acstates?apiKey={_key}");
+            request.Method = "GET";
+            request.ContentType = "application/json";
+            using (var response = (HttpWebResponse) request.GetResponse())
+            {
+                var result = string.Empty;
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    var failed = $"Request failed. Received HTTP {response.StatusCode}";
+                    throw new ApplicationException(failed);
+                }
+
+                using (var responseStream = response.GetResponseStream())
+                {
+                    if (responseStream != null)
+                    {
+                        using (var reader = new StreamReader(responseStream))
+                        {
+                            result = reader.ReadToEnd();
+                        }
+                    }
+                }
+
+                var history = JsonConvert.DeserializeObject<History>(result);
+                return history;
+
+            }
         }
     }
 }

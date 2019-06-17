@@ -37,5 +37,20 @@ namespace Tests
                 Assert.Fail();
             }
         }
+
+        [Test]
+        public void GetAcstates()
+        {
+            var history = sharpsibo.GetAcStates("eyy7htpx");
+            if (history.status == "succress")
+            {
+                Assert.Pass();
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
     }
 }
