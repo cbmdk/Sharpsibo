@@ -4,9 +4,10 @@ using System.Text;
 
 namespace Sharpsibo.Models
 {
-    public class Temperature
+    public class Humidity
     {
         public double value { get; set; }
         public object time { get; set; }
+
     }
 }

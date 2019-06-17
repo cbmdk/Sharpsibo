@@ -7,6 +7,6 @@ namespace Sharpsibo.Models
     public class History
     {
         public string status { get; set; }
-        public List<Temperature> Result { get; set; }
+        public HistoryList result { get; set; }
     }
 }
