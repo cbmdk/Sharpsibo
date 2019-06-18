@@ -28,7 +28,7 @@ namespace Tests
         public void GetHistory()
         {
             var history = sharpsibo.GetReadings(4, "eyy7htpx");
-            if (history.status == "succress")
+            if (history.status == "success")
             {
                 Assert.Pass();
             }
@@ -42,7 +42,7 @@ namespace Tests
         public void GetAcstates()
         {
             var history = sharpsibo.GetAcStates("eyy7htpx");
-            if (history.status == "succress")
+            if (history.status == "success")
             {
                 Assert.Pass();
             }
