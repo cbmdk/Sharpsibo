@@ -82,7 +82,7 @@ namespace Sharpsibo
 
         }
 
-        public History GetAcStates(string podId)
+        public AcStatus GetAcStates(string podId)
         {
             var request = (HttpWebRequest) WebRequest.Create($"https://{hostUrl}{basePath}pods/{podId}/acStates?apiKey={_key}");
             request.Method = "GET";
@@ -107,7 +107,7 @@ namespace Sharpsibo
                     }
                 }
 
-                var history = JsonConvert.DeserializeObject<History>(result);
+                var history = JsonConvert.DeserializeObject<AcStatus>(result);
                 return history;
 
             }

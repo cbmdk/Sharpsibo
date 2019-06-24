@@ -4,8 +4,8 @@ namespace Sharpsibo.Models
 {
     public class AcStatus
     {
-        public string Status { get; set; }
-        public bool MoreResults { get; set; }
-        public List<Result> Result { get; set; }
+        public string status { get; set; }
+        public bool moreResults { get; set; }
+        public List<Result> result { get; set; }
     }
 }
